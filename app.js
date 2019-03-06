@@ -9,7 +9,11 @@ new Vue({
         xKoordinata: 0,
         yKoordinata: 0,
         a: 0,
-        b: 0
+        b: 0,
+        available: false,
+        nearby: false,
+        error: true,
+        success: true
     },
     methods: {
         greet: function(argument){
@@ -45,6 +49,12 @@ new Vue({
     computed:{
         dodajB: function(){
             return this.b + this.godine;
+        },
+        compClasses: function(){
+            return{
+                //available: this.available,
+                nearby: this.nearby
+            };
         }
     }
 })

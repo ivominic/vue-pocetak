@@ -51,7 +51,30 @@
         <p>Godine + A = {{dodajA()}}</p>
         <p>Godine + B = {{dodajB}}</p>
         <!--Svaki put kada se promijeni vrijednost a ili b, obje funkcije se izvršavaju. Uvodi se computed property i za nju je potrebno da se funkcije kreiraju u computed dijelu app.js fajla, kao i da im se ukloni zagrada iz poziva. Ovdje to urađeno za dodajB-->
-
+        <hr>
+        <h1>Dynamic CSS</h1>
+        <h2>Primjer 1</h2>
+        <div v-on:click="available=!available" v-bind:class="{available:available}">
+            <span>
+                Klik za promjenu
+            </span>
+        </div>
+        <h2>Primjer 2</h2>
+        <button v-on:click="nearby=!nearby">Mijenjaj nearby</button>
+        <button v-on:click="available=!available">Mijenjaj available</button>
+        <div v-bind:class="compClasses"> <!--Ovo je iz computed dijela i osvježava na svaku promjenu vrijednosti koje ulaze u computed property-->
+            <span>
+                Klik za promjenu
+            </span>
+        </div>
+        <hr>
+        <h1>Conditionals</h1>
+        <button v-on:click="error=!error">Mijenjaj error</button>
+        <button v-on:click="success=!success">Mijenjaj success</button>
+        <p v-if="error">Mijenja error value true ili false</p>
+        <p v-else-if="success">Mijenja success</p> <!--Ovaj se neće prikazati ako je error= true, bez obzira na vrijednost success promjenljive-->
+        <p v-show="error">Show error - samo mijenja display klasu paragrafa, a ne uklanja potpuno kao v-if</p>
+        <p v-show="success">Show success</p>
     </div>    
     <script src="app.js"></script>
 </body>
