@@ -17,7 +17,7 @@
         <h1>Data binding</h1>
         <a v-bind:href="website">web site</a>
         <!--Data binding, za atribute, može i bez "v-bind" dijela, samo sa ":" ispred href. I website ne mora da bude pod navodnicima-->
-        <a :href=website>Isti sajt</a>
+        <a :href="website">Isti sajt</a>
         <input type="text" :value="job">
         <!--Prikaz linka iz podataka, ne kao tekst, nego kao link, uz pomoć direktive "v-html"-->
         <p v-html="websiteTag"></p>
@@ -75,6 +75,24 @@
         <p v-else-if="success">Mijenja success</p> <!--Ovaj se neće prikazati ako je error= true, bez obzira na vrijednost success promjenljive-->
         <p v-show="error">Show error - samo mijenja display klasu paragrafa, a ne uklanja potpuno kao v-if</p>
         <p v-show="success">Show success</p>
+        <hr>
+        <h1>For petlja</h1>
+        <ul>
+            <li v-for="(element, index) in niz">{{index}} - {{element}}</li> <!--Ako želimo index elementa oda u zagradi dodamo index-->
+        </ul>
+        <ul>
+            <li v-for="element in nizObjekata">{{element.ime}} {{element.prezime}}</li>
+        </ul>
+        <template v-for="(element, index) in nizObjekata"><!--Ovdje originalno bio div tag, ali ovako može template da se napravi-->
+            <h3>{{index}}.{{element.ime}}</h3>
+            <p>{{element.prezime}}</p>            
+        </template>
+        <template v-for="element in nizObjekata">
+            <div v-for="(val, key) in element">
+                <p>{{key}}: {{val}}</p>
+            </div>
+        </template>
+
     </div>    
     <script src="app.js"></script>
 </body>

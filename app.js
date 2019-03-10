@@ -13,7 +13,14 @@ new Vue({
         available: false,
         nearby: false,
         error: true,
-        success: true
+        success: true,
+        niz : ['Prvi član', 'Drugi član', 'Treći član', 'Četvrti član'],
+        nizObjekata: [
+            {ime: 'aaa', prezime: 'bbbb'},
+            {ime: 'ccc', prezime: 'dddd'},
+            {ime: 'eee', prezime: 'ffff'},
+            {ime: 'ggg', prezime: 'hhhh'}
+        ]
     },
     methods: {
         greet: function(argument){
