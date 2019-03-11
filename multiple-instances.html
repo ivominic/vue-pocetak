@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Multiple instances</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <h1>Multiple Vue instances</h1>
+    <div id="vue-app-one">
+        <h2>{{ title }}</h2>
+        <p>{{pozdrav}}</p>
+        <imekomponente></imekomponente><!--Mijenja svuda ovaj tag sa template-om iz komponente sa ovim imenom-->
+
+    </div>
+    <div id="vue-app-two">
+        <h2>{{ title }}</h2>
+        <p>{{pozdrav}}</p>        
+        <button v-on:click="izmjenaNaslova1">Promijeni naslov u prvoj instanci</button>
+        <imekomponente></imekomponente>
+    </div>
+
+    <script src="multiple-app.js"></script>
+</body>
+</html>
