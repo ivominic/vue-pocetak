@@ -20,7 +20,8 @@ new Vue({
             {ime: 'ccc', prezime: 'dddd'},
             {ime: 'eee', prezime: 'ffff'},
             {ime: 'ggg', prezime: 'hhhh'}
-        ]
+        ],
+        imePoljaOutput: "Defaultna izlazna vrijednost"
     },
     methods: {
         greet: function(argument){
@@ -51,6 +52,11 @@ new Vue({
         },
         dodajA: function(){
             return this.a + this.godine;
+        },
+        citajRef: function(){
+            console.log(this.$refs);  //this.$refs  - lista svih ref-ova na stranici
+            console.log(this.$refs.ime_polja.value); //vrijednost iz konkrenog ref-a (kontrole)
+            this.imePoljaOutput = this.$refs.ime_polja.value;
         }
     },
     computed:{
