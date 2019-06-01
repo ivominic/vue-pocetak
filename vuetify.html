@@ -19,7 +19,7 @@
             <v-spacer></v-spacer>
             <v-dialog v-model="dialog" max-width="500px">
               <template v-slot:activator="{ on }">
-                <v-btn color="primary" dark class="mb-2" v-on="on">New Item</v-btn>
+                <v-btn color="primary" dark class="mb-2" v-on="on"><v-icon small class="mr-2">add</v-icon> New Item</v-btn>
               </template>
               <v-card>
                 <v-card-title>
@@ -44,6 +44,9 @@
                       <v-flex xs12 sm6 md4>
                         <v-text-field v-model="editedItem.protein" label="Protein (g)"></v-text-field>
                       </v-flex>
+                      <v-flex xs12 sm6 md4>
+                        <v-checkbox v-model="editedItem.active" label="Active"></v-checkbox>
+                      </v-flex>
                     </v-layout>
                   </v-container>
                 </v-card-text>
@@ -63,6 +66,7 @@
               <td class="text-xs-right">{{ props.item.fat }}</td>
               <td class="text-xs-right">{{ props.item.carbs }}</td>
               <td class="text-xs-right">{{ props.item.protein }}</td>
+              <td class="text-xs-right">{{ props.item.active }}</td>
               <td class="justify-center layout px-0">
                 <v-icon small class="mr-2" @click="editItem(props.item)">
                   edit
@@ -97,6 +101,7 @@
             { text: "Fat (g)", value: "fat" },
             { text: "Carbs (g)", value: "carbs" },
             { text: "Protein (g)", value: "protein" },
+            { text: "Active", align: "right", value: "active" },
             { text: "Actions", value: "name", sortable: false }
           ],
           desserts: [],
@@ -106,6 +111,7 @@
             calories: 0,
             fat: 0,
             carbs: 0,
+            active: false,
             protein: 0
           },
           defaultItem: {
@@ -113,6 +119,7 @@
             calories: 0,
             fat: 0,
             carbs: 0,
+            active: false,
             protein: 0
           }
         },
@@ -141,6 +148,7 @@
                 calories: 159,
                 fat: 6.0,
                 carbs: 24,
+                active: true,
                 protein: 4.0
               },
               {
@@ -148,6 +156,7 @@
                 calories: 237,
                 fat: 9.0,
                 carbs: 37,
+                active: true,
                 protein: 4.3
               },
               {
@@ -155,6 +164,7 @@
                 calories: 262,
                 fat: 16.0,
                 carbs: 23,
+                active: true,
                 protein: 6.0
               },
               {
@@ -162,6 +172,7 @@
                 calories: 305,
                 fat: 3.7,
                 carbs: 67,
+                active: true,
                 protein: 4.3
               },
               {
@@ -169,6 +180,7 @@
                 calories: 356,
                 fat: 16.0,
                 carbs: 49,
+                active: true,
                 protein: 3.9
               },
               {
@@ -176,6 +188,7 @@
                 calories: 375,
                 fat: 0.0,
                 carbs: 94,
+                active: true,
                 protein: 0.0
               },
               {
@@ -183,6 +196,7 @@
                 calories: 392,
                 fat: 0.2,
                 carbs: 98,
+                active: true,
                 protein: 0
               },
               {
@@ -190,6 +204,7 @@
                 calories: 408,
                 fat: 3.2,
                 carbs: 87,
+                active: false,
                 protein: 6.5
               },
               {
@@ -197,6 +212,7 @@
                 calories: 452,
                 fat: 25.0,
                 carbs: 51,
+                active: false,
                 protein: 4.9
               },
               {
@@ -204,6 +220,7 @@
                 calories: 518,
                 fat: 26.0,
                 carbs: 65,
+                active: true,
                 protein: 7
               }
             ];
